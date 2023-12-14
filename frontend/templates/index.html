@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/frontend/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/frontend/style/index.css">
+    <script src="/frontend/scripts/index.js"></script>
+    <title>Cryptobit</title>
+</head>
+<body>
+
+<div class="header">
+    <div class="logo">
+        <img src="/frontend/img/logo.png" alt="logo">
+    </div>
+    <div class="signin" onclick="showModal()">Sign In</div>
+</div>
+
+<div class="first">
+    <img class="bgimg" src="/frontend/img/bg.png" alt="bg">
+    <img class="anim" src="/frontend/img/1slide.png" alt="anim">
+    <img class="coins" src="/frontend/img/2slide.png" alt="coins">
+    <div class="first-text">
+        <div class="label">
+            <b>Buy & Sell Crypto<br>
+            Easier Then Ever</b>
+        </div>
+        <div class="text">
+            Our team of experts uses a methodology to identify the
+            credit cards most likely to fit your needs. We examine
+            annual percentage rates, annual fees.
+        </div>
+        <div class="start" onclick="showModal()">Start Sale</div>
+    </div>
+</div>
+
+<div class="second">
+    <img class="bgimg2" src="/frontend/img/bg.png" alt="bg">
+    <img src="/frontend/img/coin1.png" alt="coin1" class="lazy-img" id="coin1">
+    <img src="/frontend/img/coin2.png" alt="coin2" class="lazy-img" id="coin2">
+    <img src="/frontend/img/coin3.png" alt="coin3" class="lazy-img" id="coin3">
+    <img src="/frontend/img/coin4.png" alt="coin4" class="lazy-img" id="coin4">
+
+    <div class="second-text">
+        <div class="label2">
+            <b>Trade Crypto Seamlessly</b>
+        </div>
+        <div class="text2">
+            Our cryptocurrency exchange platform offers a seamless trading 
+            experience for both novice and advanced crypto traders. 
+            With our intuitive interface, you can easily buy, sell and trade
+            top cryptocurrencies like Bitcoin, Ethereum, Litecoin and more.
+        </div>
+        <div class="start" onclick="showModal()">Start Trade</div>
+    </div>
+</div>
+
+<div id="modal" class="modal">
+    <form id="form" action="/login" method="post" enctype="application/x-www-form-urlencoded">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="login">Login</div>
+            <div class="email">Username:</div>
+            <input type="text" id="log" name="username" placeholder="Username" required>
+            <div class="pas">Password:</div>
+            <input type="password" id="pass" name="password" placeholder="Password" required>
+            <div class="error-message" style="color: red;"></div>
+            <button class="next" type="submit"">Login</button>
+        </div>
+    </form>
+  </div>
+
+</body>
+</html>

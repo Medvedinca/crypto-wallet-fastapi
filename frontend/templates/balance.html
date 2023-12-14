@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/frontend/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/frontend/style/balance.css">
+    <script src="/frontend/scripts/balance.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <title>Cryptobit</title>
+</head>
+<body>
+
+<div class="data">
+    <div class="usd">{{ usd }}</div>
+    <div class="btc">{{ btc }}</div> 
+</div>
+
+<div class="container">
+    
+<div class="header">
+    <div class="header-content">
+        <div class="logo">
+            <img src="/frontend/img/logo.png" alt="logo">
+        </div>
+
+            <div id="switch">
+                <div id="switch-txt">Скрыть</div>
+                <div class="switch-btn"></div>
+            </div>
+
+            <div class="user-block">
+                <img id="user-logo" src="/frontend/svg/user.svg" alt="User">
+                <div id="user-name">{{ user }}</div>
+                <div class="user-menu">
+                    <div class="logout-btn" onclick="deleteCookie('user')">
+                        <img class="logout-svg" src="/frontend/svg/logout.svg" alt="Logout">
+                        <div class="logout-txt">Выход</div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+
+
+<div class="body-content">
+    <div id="wallets">
+        <div id="wallets-title">Кошельки</div>
+
+        {% for wallet in wallets %}
+        <div class="wallet" onclick="activateWallet(this)">
+            <img id="wallet-icon" src="/frontend/svg/{{ wallet.currency | lower }}.svg" alt="Currency">
+            <div id="wallet-title">Основной</div>
+            <div id="wallet-title-currency">{{ wallet.currency }}</div>
+            <div class="wallet-value">
+                <span id="wallet-amount">{{ wallet.amount }}</span>
+                <span id="wallet-value-currency">{{ wallet.currency }}</span>
+            </div>   
+        </div>
+        {% endfor %}
+
+        <div class="wallet-add-btn inactive">Добавить кошелек</div>
+
+    </div>
+
+
+    <div id="balance">
+    <div id="balance-title">Общий баланс</div>
+    <div class="balance-result">{{ amount }}</div>
+
+    <div class="btn-deploy">
+        <img id="btn-deploy-svg" src="/frontend/svg/deploy.svg" alt="AddSVG">
+        <div id="btn-deploy-text">Пополнить</div>    
+    </div>
+    
+    <div class="btn-withdraw">
+        <img id="btn-withdraw-svg" src="/frontend/svg/withdraw.svg" alt="OutSVG">
+        <div id="btn-withdraw-text">Вывести</div>    
+    </div>
+
+    <div class="btn-exchange">
+        <img id="btn-exchange-svg" src="/frontend/svg/convert.svg" alt="ExcSVG">
+        <div id="btn-exchange-text">Обменять</div>    
+    </div>
+    
+    <div class="btn-cards deactivate">
+        <img id="btn-cards-svg" src="/frontend/svg/card.svg" alt="ExcSVG">
+        <div id="btn-cards-text">Карты</div>    
+    </div>
+    </div>
+
+
+    <div id="transaction-history">
+        <div id="transaction-title">История</div>
+
+        {% for trans in transaction | reverse %}
+        <div class="transaction" onclick="activateTransaction(this)">
+            
+            <img class="transaction-svg" src="/frontend/svg/convert.svg" alt="convert">
+
+            <div class="transaction-status">{{ trans.status }} ({{ trans.type }})</div>
+
+            <div class="transaction-sum">{{ trans.sum }} {{ trans.currency }}</div>
+
+            <div class="transaction-from">{{ trans.from }}</div>
+
+            <div class="transaction-to">{{ trans.to }}</div>
+
+            <div class="transaction-date">{{ trans.date }}</div>
+
+            <div class="transaction-description">{{ trans.description }}</div>
+
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="convert">
+        <div class="convert-title">Обмен</div>
+
+        <div class="convert-description">
+            <img class="convert-description-logo" src="/frontend/svg/exclamation.svg" alt="!">
+            <div class="convert-description-title">Для обмена необходимо:</div>
+            <ol class="convert-list">
+                <li>Выбрать кошелек, с которого будут списаны средства</li>
+                <li>Выбрать кошелек, на который будут зачислены средства</li>
+                <li>Ввести сумму списания или сумму зачисления</li>
+            </ol>   
+        </div>
+
+        <form class="exchange" action="/exchange" method="post" enctype="application/x-www-form-urlencoded">
+
+        <div class="convert-from">
+            <div class="convert-from-title">Отдаёте</div>
+
+            <div class="convert-from-amount">
+                <div class="convert-from-wallet">Основной RUB</div>
+                <span class="convert-from-value">10</span>
+                <span class="convert-from-currency">₽</span>
+            </div>
+
+            <div class="convert-from-input-title">Сумма</div>
+
+            <input type="text" class="convert-from-input">
+            <div class="from-min">Минимальная сумма: 0</div>
+            <div class="from-max">Максимальная сумма: 0</div>
+
+        </div>
+
+        <div class="convert-to">
+            <div class="convert-to-title">Получаете</div>
+
+            <div class="convert-to-wallet">
+                <select class="convert-select">
+                    <option value="start">Выберете кошелек</option>
+                    <option value="rub">Основной RUB</option>
+                    <option value="usd">Основной USD</option>
+                    <option value="btc">Основной BTC</option>
+                    <option value="usdttrc20">Основной USDTTRC20</option>
+                    <option value="usdterc20">Основной USDTERC20</option>
+                  </select>
+            </div>
+
+            <div class="convert-to-input-title">Сумма</div>
+
+            <input type="text" class="convert-to-input">
+
+            <div class="convert-btn deactiv">Обменять</div>
+                        
+        </div>
+
+        </form>
+
+    </div>
+
+    <div class="deploy">
+        <div class="deploy-title">Пополнение</div>
+
+        <div class="deploy-description">
+            <img class="deploy-description-logo" src="/frontend/svg/exclamation.svg" alt="!">
+            <div class="deploy-description-title">Для пополнения необходимо:</div>
+            <ol class="deploy-list">
+                <li>Выбрать кошелек, на котрый будут зачислены средства</li>
+                <li>Ввести сумму зачисления</li>
+                <li>Ввести данные карты</li>
+            </ol>   
+        </div>
+
+
+        <div class="deploy-from">
+            <div class="deploy-from-input-title">Введите сумму пополнения в рублях</div>
+
+            <input type="text" class="deploy-from-input">
+
+            <div class="from-min">При пополнении USD кошелька, средства конвертируются по текущему курсу!</div>
+
+            <div class="deploy-card-text">Введите номер карты</div>
+
+            <input type="text" class="deploy-card-number" placeholder="XXXX XXXX XXXX XXXX">
+
+            <div class="deploy-date-text">Срок</div>
+
+            <input type="text" class="deploy-date-number" placeholder="00/00">
+
+            <div class="deploy-cvv-text">CVV</div>
+
+            <input type="text" class="deploy-cvv-number" placeholder="XXX">
+
+            <div class="deploy-btn deactiv">Пополнить</div>
+
+        </div>
+
+    </div>
+
+    <div class="withdraw">
+        <div class="withdraw-title">Вывод</div>
+
+        <div class="withdraw-error">
+            <img class="withdraw-error-logo" src="/frontend/svg/exclamation-red.svg" alt="!">
+            <div class="withdraw-error-title">В целях безопастности, вывод возможен только на карты с которых происходило пополнение!</div>  
+        </div>
+
+        <div class="withdraw-description">
+            <img class="withdraw-description-logo" src="/frontend/svg/exclamation.svg" alt="!">
+            <div class="withdraw-description-title">Для вывода необходимо:</div>
+            <ol class="withdraw-list">
+                <li>Выбрать кошелек, с которого будут списанны средства</li>
+                <li>Ввести сумму вывода</li>
+                <li>Ввести номер карты для вывода</li>
+            </ol>   
+        </div>
+
+
+        <div class="withdraw-from">
+            <div class="withdraw-from-input-title">Введите сумму вывода в рублях</div>
+
+            <input type="text" class="withdraw-from-input">
+
+            <div class="from-min">При выводе с USD кошелька, средства конвертируются по текущему курсу!</div>
+            
+            <div class="withdraw-to-input-title">Введите номер карты</div>
+
+            <input type="text" class="withdraw-to-input">
+
+            <div class="withdraw-btn deactiv">Вывести</div>
+
+        </div>
+
+    </div>
+
+    <div class="deploy-btc">
+        <div class="deploy-btc-title">Пополнение</div>
+
+        <div class="deploy-btc-description">
+            <img class="deploy-btc-description-logo" src="/frontend/svg/exclamation.svg" alt="!">
+            <div class="deploy-btc-description-title">Для пополнения необходимо:</div>
+            <ol class="deploy-btc-list">
+                <li>Совершить перевод по адресу кошелька</li>
+                <li>По завершению перевода, средства будут зачислены на внутренний баланс</li>
+            </ol>   
+        </div>
+
+        <div class="btc-address" style="display: none;">{{ btcadr }}</div>
+        <div class="trc-address" style="display: none;">{{ trcadr }}</div>
+        <div class="erc-address" style="display: none;">{{ ercadr }}</div>
+
+        <div class="deploy-btc-adress-title">Адрес кошелька:</div>
+        <div class="deploy-btc-address"></div>
+
+    </div>
+
+    <div class="withdraw-btc">
+        <div class="withdraw-btc-title">Вывод</div>
+
+        <div class="withdraw-btc-error">
+            <img class="withdraw-btc-error-logo" src="/frontend/svg/exclamation-red.svg" alt="!">
+            <div class="withdraw-btc-error-title">Примечание</div>
+            <ol class="withdraw-btc-error-list">
+                <li>Вывод не чаще одного раза в час</li>
+                <li>Вывод только на счета, с которых происходило пополнение</li>
+                <li>Вывод не более 200% от суммы пополнения</li>
+            </ol>  
+        </div>
+
+        <div class="withdraw-btc-description">
+            <img class="withdraw-btc-description-logo" src="/frontend/svg/exclamation.svg" alt="!">
+            <div class="withdraw-btc-description-title">Для вывода необходимо:</div>
+            <ol class="withdraw-btc-list">
+                <li>Выбрать кошелек, с которого будут списанны средства</li>
+                <li>Ввести сумму вывода</li>
+                <li>Ввести номер карты для вывода</li>
+            </ol>   
+        </div>
+
+
+        <div class="withdraw-btc-from">
+            <div class="crypto-title">
+                <div class="withdraw-btc-from-input-title">Введите сумму вывода в</div>
+                <div class="crypto-currency">BTC</div>
+            </div>
+            <input type="text" class="withdraw-btc-from-input">
+            
+            <div class="max">
+
+                <div class="from-max">Максимальная сумма:</div>
+
+                <div class="btc-max" style="display: none;">{{ btcmax }}</div>
+                <div class="trc-max" style="display: none;">{{ trcmax }}</div>
+                <div class="erc-max" style="display: none;">{{ ercmax }}</div>
+
+                <div class="from-max-sum"></div>
+
+                <div class="from-max-currency"></div>
+
+            </div>
+            
+            <div class="withdraw-btc-to-input-title">Введите адрес для вывода</div>
+
+            <input type="text" class="withdraw-btc-to-input">
+
+            <div class="withdraw-btc-btn deactiv">Вывести</div>
+
+        </div>
+
+    </div>
+
+    <div class="trans">
+        <div class="trans-title">Транзакция</div>
+
+        <div class="trans-from-title">Откуда:</div>
+        <div class="trans-from"></div>
+
+        <div class="trans-to-title">Куда:</div>
+        <div class="trans-to"></div>
+
+        <div class="trans-sum-title">Сумма:</div>
+        <div class="trans-sum"></div>
+
+        <div class="trans-date-title">Дата:</div>
+        <div class="trans-date"></div>
+
+        <div class="trans-status-title">Статус:</div>
+        <div class="trans-status"></div>
+
+        <div class="trans-description-title">Примечание:</div>
+        <div class="trans-description"></div>
+    </div>
+
+</div>
+
+</div>
+
+<div class="message-ok">
+    <img class="message-ok-svg" src="/frontend/svg/success.svg" alt="Succses">
+    <div class="message-ok-txt">Операция успешна!</div>
+</div>
+
+<div class="message-bad">
+    <img class="message-bad-svg" src="/frontend/svg/alarm.svg" alt="Alarm">
+    <div class="message-bad-txt">Ошибка операции!</div>
+</div>
+
+<div class="message-copy">
+    <img class="message-copy-svg" src="/frontend/svg/success.svg" alt="Succses">
+    <div class="message-copy-txt">Адрес скопирован!</div>
+</div>
+
+<div class="loader">
+    <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+</div>
+
+</body>
+</html>

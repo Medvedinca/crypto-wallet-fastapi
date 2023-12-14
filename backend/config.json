@@ -1,0 +1,14 @@
+{
+    "api-tron-comment": "Ваш API ключ с https://www.trongrid.io/dashboard",
+    "api-tron" : "", 
+
+    "bot-key-comment": "Ваш API ключ Телеграм бота",
+    "bot-key" : "",
+
+    "user-id-comment": "Id пользователя, для получения уведомлений в Телеграм",
+    "user-id" : "",
+
+    "erc20-node-comment": "Ссылка на ноду ERC, и адрес USDTERC20 контракта",
+    "erc20-node": "https://rpc.flashbots.net",
+    "usdt-contract": "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+}

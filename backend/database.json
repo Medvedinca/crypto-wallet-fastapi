@@ -1,0 +1,52 @@
+[
+    {
+        "login": "Kate",
+        "password": "123",
+        "seed": "mutual pledge shrimp gallery sausage address hole squeeze human list pink awful cute say person morning viable rocket country clutch angry fee come lonely",
+        "crypto": {
+            "bitcoin": {
+                "address": "bc1qaa992gvs3juq8h3wcra52av9rxxjcc5xta0024",
+                "balance": 0.0,
+                "deploy": 0.05,
+                "private": "zprvAhBYtdv8rkBznLihHdp6Ec8nt1FhLrKGp4WgTLV8ghdWowa6PBaLBkZQwojK8uwTNWyosZzL7V1R5xUHRiCoWm4yh8Z6qfk7hvcPqfUKZpa"
+            },
+            "trc20": {
+                "address": "TMLCVhpSu8BUuDZe2AqQ9AEQwSdmoL9Mxm",
+                "balance": 0.0,
+                "deploy": 100.0,
+                "private": "4979c854fb567df6ee9d8d5b0baaf38bd3df54dd3cb28669122aace4ab0fbb38"
+            },
+            "erc20": {
+                "address": "0x4725717B7B6c04856aaa181430FA6683603AF8b0",
+                "balance": 0.0,
+                "deploy": 75.0,
+                "private": "0x458c6e3f605226af63b9677169459493a036047cdbfa214bb9f952d9c30c2aae"
+            }
+        },
+        "wallets": [
+            {
+                "currency": "RUB",
+                "amount": 4010.63
+            },
+            {
+                "currency": "USD",
+                "amount": 311.26
+            },
+            {
+                "currency": "BTC",
+                "amount": 0.25271
+            },
+            {
+                "currency": "USDTTRC20",
+                "amount": 40.0
+            },
+            {
+                "currency": "USDTERC20",
+                "amount": 20.0
+            }
+        ],
+        "transaction": [
+        
+        ]
+    }
+]

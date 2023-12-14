@@ -1,0 +1,1823 @@
+* {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+body {
+    background-color: #101113;
+    overflow: hidden;
+}
+
+.header {
+    display: inline;
+    width: 100%;
+    height: 100px;
+    top: 0;
+    left: 0;
+    background-color: #000616;
+    position: fixed;
+    z-index: 3;
+}
+
+.header-content{
+    width: 1200px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);   
+}
+
+.logo {
+    position: relative;
+    display: inline-block;
+    margin-left: 0%;
+    margin-top: 25px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.body-content {
+    width: 1900px;
+    height: 800px;
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);       
+}
+
+#balance {
+    position: relative;
+    top: -595px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 260px;
+    background-color: #3b5bdb;
+    border-radius: 20px;
+    -webkit-box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.2) inset;
+    -moz-box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.2) inset;
+    box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.2) inset;
+    color: white;
+}
+
+#balance-title {
+    position: relative;
+    top: 25px;
+    left: 25px;
+    font-size: 24px;
+}
+
+.balance-result {
+    position: relative;
+    top: 40px;
+    left: 25px;
+    font-size: 40px;  
+}
+
+.balance-result::after {
+    content: " ₽";
+}
+
+.btn-deploy {
+    position: relative;
+    top: 100px;
+    left: 25px;
+    width: 105px;
+    height: 60px;
+    background-color: #91a7ff;
+    border-radius: 15px;
+    transition: background 0s ease;
+    cursor: pointer; 
+}
+
+#btn-deploy-text {
+    position: absolute;
+    top: 38px;
+    left: 15px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+#btn-deploy-svg {
+    position: relative;
+    width: 35px;
+    height: 35px;
+    left: 35px;
+    top: 5px;
+}
+
+.btn-deploy:hover {
+    background-color: #7792fd;
+}
+
+.btn-withdraw {
+    position: relative;
+    top: 40px;
+    left: 140px;
+    width: 105px;
+    height: 60px;
+    background-color: #91a7ff;
+    border-radius: 15px;
+    transition: background 0s ease;
+    cursor: pointer; 
+}
+
+#btn-withdraw-text {
+    position: absolute;
+    top: 38px;
+    left: 24px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+#btn-withdraw-svg {
+    position: relative;
+    width: 35px;
+    height: 35px;
+    left: 35px;
+    top: 5px;
+}
+
+.btn-withdraw:hover {
+    background-color: #7792fd;
+}
+
+.btn-exchange {
+    position: relative;
+    top: -20px;
+    left: 255px;
+    width: 105px;
+    height: 60px;
+    background-color: #91a7ff;
+    border-radius: 15px;
+    transition: background 0s ease;
+    cursor: pointer; 
+}
+
+#btn-exchange-text {
+    position: absolute;
+    top: 38px;
+    left: 19px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+#btn-exchange-svg {
+    position: relative;
+    width: 35px;
+    height: 35px;
+    left: 35px;
+    top: 5px;
+}
+
+.btn-exchange:hover {
+    background-color: #7792fd;
+}
+
+.btn-cards {
+    position: relative;
+    top: -80px;
+    left: 370px;
+    width: 105px;
+    height: 60px;
+    background-color: #91a7ff;
+    border-radius: 15px;
+    transition: background 0s ease;
+}
+
+#btn-cards-text {
+    position: absolute;
+    top: 38px;
+    left: 30px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+#btn-cards-svg {
+    position: relative;
+    width: 35px;
+    height: 35px;
+    left: 35px;
+    top: 5px;
+}
+
+.btn-cards:hover {
+    background-color: #7792fd;
+}
+
+.deactivate {
+    opacity: 0.5;
+    cursor: not-allowed; 
+}
+
+
+#wallets {
+    position: relative;
+    top: 400px;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 750px;
+    background-color: #1a1b1e;
+    border-radius: 20px;
+    -webkit-box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.2) inset;
+    -moz-box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.2) inset;
+    box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.2) inset;
+    color: #c1c2c5;
+}
+
+#wallets-title {
+    position: relative;
+    top: 25px;
+    left: 25px;
+    font-size: 24px;
+    padding-bottom: 50px;
+    font-weight: 700;
+}
+
+.wallet {
+    width: 100%;
+    height: 90px;
+    background-color: #1a1b1e;
+    cursor: pointer;
+    display: flex;
+}
+
+.wallet:hover {
+    background-color: #393a3d;
+}
+
+.wallet.active {
+    background-color: #3b5bdb;
+    color: white;
+}
+
+#wallet-title {
+    position: relative;
+    top: 15px;
+    left: 50px;
+    font-size: 17px;
+    font-weight: 400;
+}
+
+#wallet-title-currency {
+    position: relative;
+    top: 15px;
+    left: 60px;
+    font-size: 17px;
+    width: 100px; 
+}
+
+.wallet-value > span {
+    display: inline-block;
+  }
+
+.wallet-value {
+    position: relative;
+    top: 50px;
+    left: -128px;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+#wallet-icon {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    left: 25px;
+    top: 15px;
+}
+
+.wallet-add-btn {
+    position: relative;
+    width: 370px;
+    height: 50px;
+    left: 15px;
+    top: 150px;
+    background-color: #212844;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    color: #bac0f3;
+    font-weight: 600;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.wallet-add-btn.inactive {
+    opacity: 0.5;
+    cursor: not-allowed;    
+}
+
+.user-block {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    left: 800px;
+    top: -8px;
+    background-color: #000616;
+    height: 55px;
+    margin-bottom: 30px;  
+    color: #abb5bb;
+    display: inline-flex;
+    align-items: center;
+}
+
+#user-name {
+    position: relative;
+    font-size: 20px;
+    flex: 1 1 auto;
+    padding-left: 10px;
+}
+
+#user-logo {
+    position: relative;
+    width: 50px;
+    height: 50px;
+}
+
+.user-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #1a1b1e;
+    border: 1px solid #727272;
+    border-radius: 5px;
+    width: 140px;
+    height: 50px;
+}
+
+.logout-btn {
+    position: relative;
+    top: 5px;
+    left: 5px;
+    width: 130px;
+    height: 40px;
+    background-color: #1a1b1e;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    background-color: #292a2e;
+}
+
+.logout-svg {
+    position: relative;
+    width: 25px;
+    height: 25px;
+    top: 7px;
+    left: 10px;
+}
+
+.logout-txt {
+    position: relative;
+    color: #abb5bb;
+    font-weight: 600;
+    top: -18px;
+    left: 50px;  
+}
+
+.user-block:hover .user-menu {
+    display: block;
+}
+
+#transaction-history {
+  position: relative;
+  top: -610px;
+  left: 75%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  min-height: 750px;
+  max-height: 750px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background-color: #1a1b1e;
+  border-radius: 20px;
+  -webkit-box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.2) inset;
+  -moz-box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.2) inset;
+  box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.2) inset;
+  color: #c1c2c5;
+}
+
+#transaction-history::-webkit-scrollbar {
+  width: 0;
+}
+
+#transaction-title {
+  position: relative;
+  top: 25px;
+  left: 25px;
+  font-size: 24px;
+  padding-bottom: 50px;
+  font-weight: 700;
+}
+
+.transaction {
+  width: 100%;
+  height: 90px;
+  background-color: #1a1b1e;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.transaction:hover {
+  background-color: #393a3d;
+}
+
+.transaction.active {
+  background-color: #3b5bdb;
+  color: white;
+}
+
+.transaction-svg {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 25px;
+}
+
+.transaction-status {
+  position: relative;
+  left: 100px;
+  top: -30px;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.transaction-sum {
+  position: relative;
+  left: 100px;
+  top: -30px;
+  font-size: 18px;
+  font-weight: 400;  
+}
+
+.transaction-from {
+  display: none;
+}
+
+.transaction-to {
+  display: none;
+}
+
+.transaction-date {
+  display: none;
+}
+
+.transaction-description {
+  display: none;
+}
+
+.blur {
+    filter: blur(10px);
+}
+
+.switch-btn {
+    display: inline-block;
+    width: 72px; /* ширина */
+    height: 38px; /* высота */
+    border-radius: 19px; /* радиус скругления */
+    background: #25262b; /* цвет фона */
+    z-index: 0;
+    margin: 0;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    transition-duration: 300ms; /* анимация */
+  }
+  .switch-btn::after {
+    content: "";
+    height: 32px; /* высота кнопки */
+    width: 32px; /* ширина кнопки */
+    border-radius: 17px;
+    background: #c1c2c5; /* цвет кнопки */
+    top: 3px; /* положение кнопки по вертикали относительно основы */
+    left: 3px; /* положение кнопки по горизонтали относительно основы */
+    transition-duration: 300ms; /* анимация */
+    position: absolute;
+    z-index: 1;
+  }
+  .switch-on {
+    background: #3b5bdb;
+  }
+  .switch-on::after {
+    left: 37px;
+  }
+
+  #switch {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    left: 780px;
+    top: -19px;
+  }
+
+  #switch-txt {
+    display: inline-block;
+    color: #c1c2c5;
+    font-size: 18px;
+    position: relative;
+    top: -15px;
+    padding-right: 5px;
+  }
+
+  .convert {
+    position: absolute;
+    display: none;
+    top: 565px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 520px;
+    background-color: #1a1b1e;
+    border-radius: 20px;
+    -webkit-box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.2) inset;
+    -moz-box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.2) inset;
+    box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.2) inset;
+    color: white;
+}
+
+.convert.show {
+    display: block;
+}
+
+.convert-title {
+    position: relative;
+    font-size: 24px;
+    left: 210px;
+    top: 10px; 
+  }
+  
+  .convert-description {
+    position: relative;
+    width: 480px;
+    height: 110px;
+    display: block;
+    background-color: #212844;
+    left: 10px;
+    top: 20px;
+    border-radius: 15px;
+  }
+  
+  .convert-description-logo {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    top: 20px;
+    left: 20px;
+  }
+  
+  .convert-description-title {
+    font-weight: 700;
+    position: relative;
+    top: -4px;
+    left: 50px;
+    color: #b6c4fa;
+  }
+  
+  .convert-list {
+    font-size: 14px;
+    color: #ebecee;
+    left: 64px;
+    position: relative;
+  }
+  
+  .convert-from {
+    position: relative;
+    top: 25px;
+  }
+  
+  .convert-from-title {
+    position: relative;
+    left: 15px;
+    font-weight: 700;
+  }
+  
+  .convert-from-wallet {
+    position: relative;
+    display: flex;
+    left: 14px;
+    top: 5px;
+  }
+  
+  .convert-from-amount {
+    display: flex;
+    position: relative;
+    left: 0px;
+    top: -10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .convert-from-value {
+    display: inline-block;
+    position: relative;
+    padding-left: 30px;
+    top: 5px; 
+  }
+
+  .convert-from-currency {
+    display: inline-block;
+    position: relative;
+    padding-left: 5px;
+    top: 5px;  
+  }
+  
+  .convert-from-input-title {
+    position: relative;
+    left: 15px;
+    top: -10px;
+    font-weight: 700;
+  }
+  
+  .convert-from-input {
+    position: relative;
+    width: 465px;
+    left: 15px;
+    height: 45px;
+    border-radius: 5px;
+    padding-left: 10px;
+    border: 0.1px solid;
+    border-color: #5f5f5f;
+    background-color: #25262b;
+    color: #ebecee;
+    top: 0px;
+    font-weight: 400;
+    font-size: 18px;
+  }
+  
+  .convert-from-input:focus {
+    outline: none;
+    border-color: #476cff;
+  }
+  
+  .from-min {
+    color: #6b6b6b;
+    position: relative;
+    left: 15px;
+    top: 2px;
+    font-size: 13px;  
+  }
+  
+  .from-max {
+    color: #6b6b6b;
+    position: relative;
+    left: 15px;
+    font-size: 13px;  
+  }
+  
+  .convert-to {
+    position: relative;
+    top: 25px;
+  }
+  
+  .convert-to-title {
+    position: relative;
+    left: 15px;
+    font-weight: 700;
+  }
+  
+  .convert-to-wallet {
+    position: relative;
+    left: 14px;
+    top: 3px;
+  }
+  
+  .convert-to-amount > span {
+    display: inline-block;
+  }
+  
+  .convert-to-amount {
+    position: relative;
+    left: 100px;
+    top: -16px;
+  }
+  
+  .convert-to-input-title {
+    position: relative;
+    left: 15px;
+    top: 7px;
+    font-weight: 700;
+  }
+  
+  .convert-to-input {
+    position: relative;
+    width: 465px;
+    left: 15px;
+    height: 45px;
+    border-radius: 5px;
+    padding-left: 10px;
+    border: 0.1px solid;
+    border-color: #5f5f5f;
+    background-color: #25262b;
+    color: #ebecee;
+    top: 15px;
+    font-weight: 400;
+    font-size: 18px;
+  }
+  
+  .convert-to-input:focus {
+    outline: none;
+    border-color: #6f8bfd;
+  }
+  
+  .convert-select {
+    position: relative;
+    left: -3px;
+    background-color: #1a1b1e;
+    color: white;
+    border: none;
+    font-size: 14px;
+  }
+  
+  .convert-select:focus {
+    outline: none; 
+  }
+  
+  .convert-btn {
+    position: relative;
+    width: 475px;
+    top: 25px;
+    left: 15px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #212844;
+    color: #b1bff4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    cursor: pointer;
+  }
+  
+  .convert-btn.deactiv {
+    color: #25262b;
+    background-color: #373a40;
+    cursor: not-allowed;
+  }
+
+  .data {
+    display: none;
+  }
+
+.message-ok {
+  display: none;
+  width: 250px;
+  height: 100px;
+  background-color: #1a1b1e;
+  position: absolute;
+  z-index: 4;
+  border-radius: 15px;
+  left: 86%;
+  top: 86%;
+  overflow-x: hidden;
+}
+
+.message-ok-svg {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  top: 20px;
+  left: 10px;
+}
+
+.message-ok-txt {
+  width: auto;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  position: relative;
+  left: 75px;
+  top: -20px;
+}
+
+.message-ok.show {
+  display: block;
+}
+
+.message-bad {
+  display: none;
+  width: 250px;
+  height: 100px;
+  background-color: #1a1b1e;
+  position: absolute;
+  z-index: 4;
+  border-radius: 15px;
+  left: 86%;
+  top: 86%;
+  overflow-x: hidden;
+}
+
+.message-bad-svg {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  top: 20px;
+  left: 10px;
+}
+
+.message-bad-txt {
+  width: auto;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  position: relative;
+  left: 75px;
+  top: -25px;
+}
+
+.message-bad.show {
+  display: block;
+}
+
+.deploy {
+  position: absolute;
+  display: none;
+  top: 557.5px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 505px;
+  background-color: #1a1b1e;
+  border-radius: 20px;
+  -webkit-box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.2) inset;
+  -moz-box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.2) inset;
+  box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.2) inset;
+  color: #ebecee;
+}
+
+.deploy.show {
+  display: block;
+}
+
+.deploy-title {
+  position: relative;
+  font-size: 24px;
+  left: 180px;
+  top: 10px; 
+}
+
+.deploy-description {
+  position: relative;
+  width: 480px;
+  height: 110px;
+  display: block;
+  background-color: #212844;
+  left: 10px;
+  top: 20px;
+  border-radius: 15px;
+}
+
+.deploy-description-logo {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  top: 20px;
+  left: 20px;
+}
+
+.deploy-description-title {
+  font-weight: 700;
+  position: relative;
+  top: -4px;
+  left: 50px;
+  color: #b6c4fa;
+}
+
+.deploy-list {
+  font-size: 14px;
+  color: #ebecee;
+  left: 64px;
+  position: relative;
+}
+
+.deploy-from {
+  position: relative;
+  top: 45px;
+}
+
+.deploy-from-title {
+  position: relative;
+  left: 15px;
+  font-weight: 700;
+}
+
+.deploy-from-input-title {
+  position: relative;
+  left: 15px;
+  top: -10px;
+  font-weight: 700;
+}
+
+.deploy-from-input {
+  position: relative;
+  width: 465px;
+  left: 15px;
+  height: 45px;
+  border-radius: 5px;
+  padding-left: 10px;
+  border: 0.1px solid;
+  border-color: #5f5f5f;
+  background-color: #25262b;
+  color: #ebecee;
+  top: 0px;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.deploy-from-input:focus {
+  outline: none;
+  border-color: #476cff;
+}
+
+.from-min {
+  color: #6b6b6b;
+  position: relative;
+  left: 15px;
+  top: 2px;
+  font-size: 13px;  
+}
+
+.deploy-btn {
+  position: relative;
+  width: 475px;
+  top: -25px;
+  left: 15px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #212844;
+  color: #b1bff4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.deploy-btn.deactiv {
+  color: #25262b;
+  background-color: #373a40;
+  cursor: not-allowed;
+}
+
+.deploy-card-text {
+  position: relative;
+  left: 15px;
+  top: 7px;
+  font-weight: 700;  
+}
+
+.deploy-card-number {
+  position: relative;
+  width: 465px;
+  left: 15px;
+  height: 45px;
+  border-radius: 5px;
+  padding-left: 10px;
+  border: 0.1px solid;
+  border-color: #5f5f5f;
+  background-color: #25262b;
+  color: #ebecee;
+  top: 15px;
+  font-weight: 400;
+  font-size: 18px;  
+}
+
+.deploy-card-number:focus {
+  outline: none;
+  border-color: #476cff;
+}
+
+.deploy-date-text {
+  position: relative;
+  left: 15px;
+  top: 20px;
+  font-weight: 700;
+}
+
+.deploy-date-number {
+  position: relative;
+  width: 55px;
+  left: 15px;
+  height: 45px;
+  border-radius: 5px;
+  padding-left: 10px;
+  border: 0.1px solid;
+  border-color: #5f5f5f;
+  background-color: #25262b;
+  color: #ebecee;
+  top: 25px;
+  font-weight: 400;
+  font-size: 18px; 
+}
+
+.deploy-date-number:focus {
+  outline: none;
+  border-color: #476cff;
+}
+
+.deploy-cvv-text {
+  position: relative;
+  left: 100px;
+  top: -48px;
+  font-weight: 700;  
+}
+
+.deploy-cvv-number {
+  position: relative;
+  width: 40px;
+  left: 100px;
+  height: 45px;
+  border-radius: 5px;
+  padding-left: 10px;
+  border: 0.1px solid;
+  border-color: #5f5f5f;
+  background-color: #25262b;
+  color: #ebecee;
+  top: -42px;
+  font-weight: 400;
+  font-size: 18px;  
+}
+
+.deploy-cvv-number:focus {
+  outline: none;
+  border-color: #476cff;
+}
+
+.loader {
+  display: none;
+  justify-content: center;  /* центрирование по горизонтали */
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  position: fixed;
+  z-index: 9999;
+  background-color: #101113f8; 
+}
+
+.loader.show {
+  display: flex;
+}
+
+.lds-roller {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-roller div {
+  animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  transform-origin: 40px 40px;
+}
+.lds-roller div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #fff;
+  margin: -4px 0 0 -4px;
+}
+.lds-roller div:nth-child(1) {
+  animation-delay: -0.036s;
+}
+.lds-roller div:nth-child(1):after {
+  top: 63px;
+  left: 63px;
+}
+.lds-roller div:nth-child(2) {
+  animation-delay: -0.072s;
+}
+.lds-roller div:nth-child(2):after {
+  top: 68px;
+  left: 56px;
+}
+.lds-roller div:nth-child(3) {
+  animation-delay: -0.108s;
+}
+.lds-roller div:nth-child(3):after {
+  top: 71px;
+  left: 48px;
+}
+.lds-roller div:nth-child(4) {
+  animation-delay: -0.144s;
+}
+.lds-roller div:nth-child(4):after {
+  top: 72px;
+  left: 40px;
+}
+.lds-roller div:nth-child(5) {
+  animation-delay: -0.18s;
+}
+.lds-roller div:nth-child(5):after {
+  top: 71px;
+  left: 32px;
+}
+.lds-roller div:nth-child(6) {
+  animation-delay: -0.216s;
+}
+.lds-roller div:nth-child(6):after {
+  top: 68px;
+  left: 24px;
+}
+.lds-roller div:nth-child(7) {
+  animation-delay: -0.252s;
+}
+.lds-roller div:nth-child(7):after {
+  top: 63px;
+  left: 17px;
+}
+.lds-roller div:nth-child(8) {
+  animation-delay: -0.288s;
+}
+.lds-roller div:nth-child(8):after {
+  top: 56px;
+  left: 12px;
+}
+@keyframes lds-roller {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.withdraw {
+  position: absolute;
+  display: none;
+  top: 545px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 480px;
+  background-color: #1a1b1e;
+  border-radius: 20px;
+  -webkit-box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.2) inset;
+  -moz-box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.2) inset;
+  box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.2) inset;
+  color: #ebecee;
+}
+
+.withdraw-title {
+  position: relative;
+  font-size: 24px;
+  left: 210px;
+  top: 10px; 
+}
+
+.withdraw-description {
+  position: relative;
+  width: 480px;
+  height: 110px;
+  display: block;
+  background-color: #212844;
+  left: 10px;
+  top: 30px;
+  border-radius: 15px;
+}
+
+.withdraw-description-logo {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  top: 20px;
+  left: 20px;
+}
+
+.withdraw-description-title {
+  font-weight: 700;
+  position: relative;
+  top: -4px;
+  left: 50px;
+  color: #b6c4fa;
+}
+
+.withdraw-list {
+  font-size: 14px;
+  color: #ebecee;
+  left: 64px;
+  position: relative;
+}
+
+.withdraw-from {
+  position: relative;
+  top: 45px;
+}
+
+.withdraw-from-title {
+  position: relative;
+  left: 15px;
+  font-weight: 700;
+}
+
+.withdraw-from-input-title {
+  position: relative;
+  left: 15px;
+  top: -5px;
+  font-weight: 700;
+}
+
+.withdraw-from-input {
+  position: relative;
+  width: 465px;
+  left: 15px;
+  height: 45px;
+  border-radius: 5px;
+  padding-left: 10px;
+  border: 0.1px solid;
+  border-color: #5f5f5f;
+  background-color: #25262b;
+  color: #ebecee;
+  top: 0px;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.withdraw-from-input:focus {
+  outline: none;
+  border-color: #476cff;
+}
+
+.from-min {
+  color: #6b6b6b;
+  position: relative;
+  left: 15px;
+  top: 2px;
+  font-size: 13px;  
+}
+
+.withdraw-to-input-title {
+  position: relative;
+  left: 15px;
+  top: 5px;
+  font-weight: 700;
+}
+
+.withdraw-to-input {
+  position: relative;
+  width: 465px;
+  left: 15px;
+  height: 45px;
+  border-radius: 5px;
+  padding-left: 10px;
+  border: 0.1px solid;
+  border-color: #5f5f5f;
+  background-color: #25262b;
+  color: #ebecee;
+  top: 15px;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.withdraw-to-input:focus {
+  outline: none;
+  border-color: #476cff;
+}
+
+.withdraw-btn {
+  position: relative;
+  width: 475px;
+  top: 30px;
+  left: 15px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #212844;
+  color: #b1bff4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.withdraw-btn.deactiv {
+  color: #25262b;
+  background-color: #373a40;
+  cursor: not-allowed;
+}
+
+.withdraw-error {
+  position: relative;
+  width: 480px;
+  height: 60px;
+  display: block;
+  background-color: #422022;
+  left: 10px;
+  top: 20px;
+  border-radius: 15px;
+}
+
+.withdraw-error-logo {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  top: 20px;
+  left: 20px;
+}
+
+.withdraw-error-title {
+  font-weight: 700;
+  position: relative;
+  top: -15px;
+  left: 50px;
+  width: 450px;
+  color: #cdc5c5;
+}
+
+.withdraw.show {
+  display: block;
+}
+
+.trans {
+  position: absolute;
+  display: none;
+  top: 527.5px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 445px;
+  background-color: #1a1b1e;
+  border-radius: 20px;
+  -webkit-box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.2) inset;
+  -moz-box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.2) inset;
+  box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.2) inset;
+  color: #ebecee;
+}
+
+.trans.show {
+  display: block;
+}
+
+.trans-title {
+  position: relative;
+  font-size: 24px;
+  left: 185px;
+  top: 10px; 
+}
+
+.trans-from-title {
+  position: relative;
+  font-size: 24px;
+  left: 20px;
+  top: 20px;  
+}
+
+.trans-from {
+  position: relative;
+  font-size: 19px;
+  left: 20px;
+  top: 20px;
+  font-weight: 700;
+  color: #3b5bdb; 
+}
+
+.trans-to-title {
+  position: relative;
+  font-size: 24px;
+  left: 20px;
+  top: 25px;  
+}
+
+.trans-to {
+  position: relative;
+  font-size: 19px;
+  left: 20px;
+  top: 25px;
+  font-weight: 700;
+  color: #3b5bdb; 
+}
+
+.trans-sum-title {
+  position: relative;
+  font-size: 24px;
+  left: 20px;
+  top: 30px;  
+}
+
+.trans-sum {
+  position: relative;
+  font-size: 19px;
+  left: 20px;
+  top: 30px;
+  font-weight: 700;
+  color: #3b5bdb; 
+}
+
+.trans-date-title {
+  position: relative;
+  font-size: 24px;
+  left: 20px;
+  top: 30px;  
+}
+
+.trans-date {
+  position: relative;
+  font-size: 19px;
+  left: 20px;
+  top: 30px;
+  font-weight: 700;
+  color: #3b5bdb; 
+}
+
+.trans-status-title {
+  position: relative;
+  font-size: 24px;
+  left: 20px;
+  top: 30px;  
+}
+
+.trans-status {
+  position: relative;
+  font-size: 19px;
+  left: 20px;
+  top: 30px;
+  font-weight: 700;
+  color: #3b5bdb; 
+}
+
+.trans-description-title {
+  position: relative;
+  font-size: 24px;
+  left: 20px;
+  top: 30px;  
+}
+
+.trans-description {
+  position: relative;
+  font-size: 19px;
+  left: 20px;
+  top: 30px;
+  font-weight: 700;
+  color: #3b5bdb;
+  width: 460px;
+  text-align: justify; 
+}
+
+.deploy-btc {
+  position: absolute;
+  display: none;
+  top: 440px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 270px;
+  background-color: #1a1b1e;
+  border-radius: 20px;
+  -webkit-box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.2) inset;
+  -moz-box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.2) inset;
+  box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.2) inset;
+  color: #ebecee;
+}
+
+.deploy-btc.show {
+  display: block;
+}
+
+.deploy-btc-title {
+  position: relative;
+  font-size: 24px;
+  left: 180px;
+  top: 10px; 
+}
+
+.deploy-btc-description {
+  position: relative;
+  width: 480px;
+  height: 110px;
+  display: block;
+  background-color: #212844;
+  left: 10px;
+  top: 20px;
+  border-radius: 15px;
+}
+
+.deploy-btc-description-logo {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  top: 20px;
+  left: 20px;
+}
+
+.deploy-btc-description-title {
+  font-weight: 700;
+  position: relative;
+  top: -4px;
+  left: 50px;
+  color: #b6c4fa;
+}
+
+.deploy-btc-list {
+  font-size: 14px;
+  color: #ebecee;
+  left: 64px;
+  position: relative;
+  width: 440px;
+}
+
+.deploy-btc-adress-title {
+  position: relative;
+  left: 15px;
+  font-weight: 700;
+  font-size: 24px;
+  top: 30px;
+}
+
+.deploy-btc-address {
+  position: relative;
+  left: 13px;
+  font-weight: 700;
+  font-size: 19px;
+  top: 40px;
+  width: 470px;
+  padding-left: 5px;
+  padding-top: 2px;
+  height: 30px;
+  color: #4e6be0;
+  cursor: pointer;
+  border: 0.1px solid;
+  border-color: #5f5f5f;
+  background-color: #25262b;
+  border-radius: 5px;
+}
+
+.deploy-btc-address:hover {
+  border-color: #476cff;
+}
+
+.message-copy {
+  display: none;
+  width: 250px;
+  height: 100px;
+  background-color: #1a1b1e;
+  position: absolute;
+  z-index: 4;
+  border-radius: 15px;
+  left: 86%;
+  top: 86%;
+  overflow-x: hidden;
+}
+
+.message-copy-svg {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  top: 20px;
+  left: 10px;
+}
+
+.message-copy-txt {
+  width: auto;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  position: relative;
+  left: 75px;
+  top: -25px;
+}
+
+.message-copy.show {
+  display: block;
+}
+
+.withdraw-btc {
+  position: absolute;
+  display: none;
+  top: 555px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  background-color: #1a1b1e;
+  border-radius: 20px;
+  -webkit-box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.2) inset;
+  -moz-box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.2) inset;
+  box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.2) inset;
+  color: #ebecee;
+}
+
+.withdraw-btc-title {
+  position: relative;
+  font-size: 24px;
+  left: 210px;
+  top: 10px; 
+}
+
+.withdraw-btc-description {
+  position: relative;
+  width: 480px;
+  height: 95px;
+  display: block;
+  background-color: #212844;
+  left: 10px;
+  top: 30px;
+  border-radius: 15px;
+}
+
+.withdraw-btc-description-logo {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  top: 20px;
+  left: 20px;
+}
+
+.withdraw-btc-description-title {
+  font-weight: 700;
+  position: relative;
+  top: -15px;
+  left: 50px;
+  color: #b6c4fa;
+}
+
+.withdraw-btc-list {
+  font-size: 14px;
+  color: #ebecee;
+  left: 64px;
+  top: -15px;
+  position: relative;
+}
+
+.withdraw-btc-from {
+  position: relative;
+  top: 45px;
+}
+
+.withdraw-btc-from-title {
+  position: relative;
+  left: 15px;
+  font-weight: 700;
+}
+
+.crypto-title {
+  display: flex;
+}
+
+.crypto-currency {
+  position: relative;
+  padding-left: 20px;
+  top: -5px;
+  font-weight: 700;  
+}
+
+.withdraw-btc-from-input-title {
+  position: relative;
+  left: 15px;
+  top: -5px;
+  font-weight: 700;
+}
+
+.withdraw-btc-from-input {
+  position: relative;
+  width: 465px;
+  left: 15px;
+  height: 45px;
+  border-radius: 5px;
+  padding-left: 10px;
+  border: 0.1px solid;
+  border-color: #5f5f5f;
+  background-color: #25262b;
+  color: #ebecee;
+  top: 0px;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.withdraw-btc-from-input:focus {
+  outline: none;
+  border-color: #476cff;
+}
+
+.max {
+  display: flex;
+}
+
+.from-max {
+  color: #6b6b6b;
+  position: relative;
+  left: 15px;
+  top: 2px;
+  font-size: 13px;  
+}
+
+.from-max-sum {
+  color: #6b6b6b;
+  position: relative;
+  left: 18px;
+  top: 2px;
+  font-size: 13px;  
+}
+
+.from-max-currency {
+  color: #6b6b6b;
+  position: relative;
+  padding-left: 20px;
+  top: 2px;
+  font-size: 13px;  
+}
+
+.withdraw-btc-to-input-title {
+  position: relative;
+  left: 15px;
+  top: 5px;
+  font-weight: 700;
+}
+
+.withdraw-btc-to-input {
+  position: relative;
+  width: 465px;
+  left: 15px;
+  height: 45px;
+  border-radius: 5px;
+  padding-left: 10px;
+  border: 0.1px solid;
+  border-color: #5f5f5f;
+  background-color: #25262b;
+  color: #ebecee;
+  top: 15px;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.withdraw-btc-to-input:focus {
+  outline: none;
+  border-color: #476cff;
+}
+
+.withdraw-btc-btn {
+  position: relative;
+  width: 475px;
+  top: 30px;
+  left: 15px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #212844;
+  color: #b1bff4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.withdraw-btc-btn.deactiv {
+  color: #25262b;
+  background-color: #373a40;
+  cursor: not-allowed;
+}
+
+.withdraw-btc-error {
+  position: relative;
+  width: 480px;
+  height: 95px;
+  display: block;
+  background-color: #422022;
+  left: 10px;
+  top: 20px;
+  border-radius: 15px;
+}
+
+.withdraw-btc-error-logo {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  top: 20px;
+  left: 20px;
+}
+
+.withdraw-btc-error-title {
+  font-weight: 700;
+  position: relative;
+  top: -15px;
+  left: 50px;
+  width: 450px;
+  color: #cdc5c5;
+}
+
+.withdraw-btc-error-list {
+  font-size: 14px;
+  color: #ebecee;
+  left: 64px;
+  position: relative;
+  top: -15px;
+}
+
+.withdraw-btc.show {
+  display: block;
+}
